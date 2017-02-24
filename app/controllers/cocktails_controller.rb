@@ -22,7 +22,6 @@ class CocktailsController < ApplicationController
 
   # POST /cocktails
   def create
-    debugger
     @cocktail = Cocktail.new(name: cocktail_params[:name], photo: cocktail_params[:photo])
     @cocktail.save!
     cocktail_params["doses_attributes"].each do |key, value|
