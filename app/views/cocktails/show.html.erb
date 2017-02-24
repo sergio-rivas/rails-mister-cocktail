@@ -11,12 +11,10 @@
 <div class="media">
   <div class="media-body">
     <div class="media-section" style="border-radius: 3px;">
-      <%= cl_image_tag @cocktail.photo, crop: :fill %>
-    </div>
-    <div class="media-section">
-      <h4 class="section-heading">Description</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cum laboriosam magnam labore sunt! Quis totam quidem distinctio harum natus. Labore molestias numquam assumenda eos?</p>
-    </div>
+      <% if @cocktail.photo? %>
+        <%= cl_image_tag @cocktail.photo, width: 50 %>
+      <% end %>
+  </div>
   </div>
   <div class="media-aside">
     <div class="media-section">

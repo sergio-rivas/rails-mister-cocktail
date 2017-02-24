@@ -22,8 +22,9 @@ class CocktailsController < ApplicationController
 
   # POST /cocktails
   def create
-    @cocktail = Cocktail.new(name: cocktail_params[:name])
-    @cocktail.save
+    debugger
+    @cocktail = Cocktail.new(name: cocktail_params[:name], photo: cocktail_params[:photo])
+    @cocktail.save!
     cocktail_params["doses_attributes"].each do |key, value|
       value["cocktail_id"] = @cocktail.id
       @dose = Dose.new(value)
