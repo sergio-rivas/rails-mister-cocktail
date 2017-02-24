@@ -11,7 +11,7 @@
 <div class="media">
   <div class="media-body">
     <div class="media-section" style="border-radius: 3px;">
-      <%= image_tag 'margarita.jpg' %>
+      <%= cl_image_tag @cocktail.photo, crop: :fill %>
     </div>
     <div class="media-section">
       <h4 class="section-heading">Description</h4>

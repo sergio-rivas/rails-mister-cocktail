@@ -1,12 +1,10 @@
-<div class="form-inline" style="display: flex;">
-  <div class="row">
+  <div class="form-inline" style="display: flex;">
     <%= dose.input :description, label: "Dose Amount: " %>
   <%= dose.input :cocktail_id, input_html: {value: cid}, as: :hidden %>
     <%= dose.input :ingredient_id, collection: Ingredient.all, label_method: :name, value_method: :id, label: "Ingredient: ", :include_blank => false %>
-        <button class="btn btn-danger btn-xs" style="margin: auto 5px 18px 5px;">
+        <button class="btn btn-danger btn-xs" style="margin: auto 5px 25px 5px;">
       <%= dose.link_to_remove do %>
         <i class="fa fa-trash" style="color:white;"></i>
       <% end %>
     </button>
   </div>
-</div>

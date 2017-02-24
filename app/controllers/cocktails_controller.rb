@@ -60,6 +60,6 @@ class CocktailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cocktail_params
-      params.require(:cocktail).permit(:name, doses_attributes: [:id, :description, :ingredient_id, :cocktail_id])
+      params.require(:cocktail).permit(:name, :photo, :photo_cache, doses_attributes: [:id, :description, :ingredient_id, :cocktail_id])
     end
 end
