@@ -59,6 +59,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     globalid (0.3.7)
@@ -81,6 +83,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    nested_form (0.3.2)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -186,9 +189,11 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
+  figaro
   font-awesome-sass
   jquery-rails
   listen (~> 3.0.5)
+  nested_form
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)

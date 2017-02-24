@@ -1,27 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Cocktails</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+      <div class="col-xs-12 col-sm-4" style="margin: 20px, 0;">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path 'margarita.jpg' %>);">
+          <div class="card-description">
+            <h2><%= cocktail.name %></h2>
+            <p style="color: white;">Great for Summer.</p>
+          </div>
+          <%= link_to "", cocktail, class: "card-link" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cocktail', new_cocktail_path %>
+<div class="col-xs-12 col-sm-4" style="margin: 20px, 0;">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= asset_path 'margarita.jpg' %>);">
+          <div class="card-description">
+            <h2>Add a New Cocktail</h2>
+          </div>
+          <%= link_to "", new_cocktail_path, class: "card-link" %>
+        </div>
+      </div>
+    </div>

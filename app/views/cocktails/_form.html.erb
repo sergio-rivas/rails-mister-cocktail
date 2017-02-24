@@ -1,22 +1,18 @@
-<%= form_for(cocktail) do |f| %>
-  <% if cocktail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
+<%= simple_nested_form_for(@cocktail) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% cocktail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-inline" style="margin-top: 10px;">
+    <%= f.input :name, label: "Name: " %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+
+    <%= f.simple_fields_for :doses do |dose| %>
+      <%= render 'doses_fields', dose: dose, cid: @cocktail.id %>
+    <% end %>
+
+  <p><%= f.link_to_add "Add Ingredient", :doses %></p>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

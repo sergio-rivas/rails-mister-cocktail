@@ -1,9 +1,40 @@
 <p id="notice"><%= notice %></p>
+<h1>
+    <%= @cocktail.name %> <span>
+      <%= button_tag edit_cocktail_path(@cocktail), class: "btn btn-danger btn-xs" do %>
+  <i class="fa fa-pencil" style="color:white"></i>
+<% end %>
+    </span>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
+</h1>
 
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<div class="media">
+  <div class="media-body">
+    <div class="media-section" style="border-radius: 3px;">
+      <%= image_tag 'margarita.jpg' %>
+    </div>
+    <div class="media-section">
+      <h4 class="section-heading">Description</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cum laboriosam magnam labore sunt! Quis totam quidem distinctio harum natus. Labore molestias numquam assumenda eos?</p>
+    </div>
+  </div>
+  <div class="media-aside">
+    <div class="media-section">
+      <h4 class="section-heading">Ingredients</h4>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.description %> - <%= Ingredient.find(dose.ingredient_id).name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="media-section">
+      <h4>382 upvotes</h4>
+      ...
+    </div>
+  </div>
+</div>
+
+
+
+
 <%= link_to 'Back', cocktails_path %>

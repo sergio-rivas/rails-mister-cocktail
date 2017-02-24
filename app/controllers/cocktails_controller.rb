@@ -8,6 +8,7 @@ class CocktailsController < ApplicationController
 
   # GET /cocktails/1
   def show
+
   end
 
   # GET /cocktails/new
@@ -21,7 +22,13 @@ class CocktailsController < ApplicationController
 
   # POST /cocktails
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.new(name: cocktail_params[:name])
+    @cocktail.save
+    cocktail_params["doses_attributes"].each do |key, value|
+      value["cocktail_id"] = @cocktail.id
+      @dose = Dose.new(value)
+      @dose.save
+    end
 
     if @cocktail.save
       redirect_to @cocktail, notice: 'Cocktail was successfully created.'
@@ -53,6 +60,6 @@ class CocktailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cocktail_params
-      params.require(:cocktail).permit(:name)
+      params.require(:cocktail).permit(:name, doses_attributes: [:id, :description, :ingredient_id, :cocktail_id])
     end
 end

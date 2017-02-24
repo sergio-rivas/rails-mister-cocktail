@@ -11,7 +11,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="background-image: url(<%= asset_path 'bg.png' %>);">
+    <%= render partial: "layouts/navbar"%>
+
+
+    <div class="container padded">
+      <div class="bam">
+        <%= yield %>
+      </div>
+    </div>
+
   </body>
 </html>
