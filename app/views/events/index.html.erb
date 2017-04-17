@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gentlemanly Events</h1>
+  <div class="row">
+    <% @events.each do |event| %>
+      <% @plus_one = event.rsvp + 1 %>
+      <div class="col-xs-12 col-sm-4" style="margin: 20px, 0;">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path event.photo, height: 300, width: 400, crop: :fill %>');">
+            <%= simple_form_for(event) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :rsvp, as: :hidden, value: @plus_one %>
+                <%= f.button :submit, class: "btn btn-primary card-submit", value: "#{event.rsvp} ^" %>
+            <% end %>
+          <div class="card-description">
+            <h2><%= event.name %></h2>
+            <p style="color: white;"><%= event.location %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+<div class="col-xs-12 col-sm-4" style="margin: 20px, 0;">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url(<%= asset_path 'margarita.jpg' %>);">
+          <div class="card-description">
+            <h2>Add a New Event</h2>
+          </div>
+          <%= link_to "", new_event_path, class: "card-link" %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
